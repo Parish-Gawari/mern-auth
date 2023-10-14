@@ -1,6 +1,22 @@
 import express from "express";
+import mongoose from "mongoose";
+// import dotenv from "dotenv";
+
+// dotenv.config();
+
 const app = express();
 
-app.listen(8090, () => {
-  console.log("Server listening on Port 8090");
+mongoose
+  .connect(
+    "mongodb+srv://parishk1024:GankoGotNoChill@mern-auth.ye9s3uc.mongodb.net/MERN-AUTH?retryWrites=true&w=majority"
+  )
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+app.listen(3000, () => {
+  console.log("Server listening on Port 3000");
 });
