@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -9,7 +10,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-
+app.use(cookieParser());
 mongoose
   .connect(
     "mongodb+srv://parishk1024:GankoGotNoChill@mern-auth.ye9s3uc.mongodb.net/MERN-AUTH?retryWrites=true&w=majority"
