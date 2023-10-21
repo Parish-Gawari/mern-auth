@@ -6,11 +6,12 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 dotenv.config();
 
-// dotenv.config();
-
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.listen(3000, () => {
+  console.log("Server listening on Port 3000");
+});
 mongoose
   .connect(
     "mongodb+srv://parishk1024:GankoGotNoChill@mern-auth.ye9s3uc.mongodb.net/MERN-AUTH?retryWrites=true&w=majority"
@@ -33,8 +34,4 @@ app.use((err, req, res, next) => {
     message,
     statusCode,
   });
-});
-
-app.listen(3000, () => {
-  console.log("Server listening on Port 3000");
 });
